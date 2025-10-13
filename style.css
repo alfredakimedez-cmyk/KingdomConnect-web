@@ -1,0 +1,371 @@
+/* ===== CSS Reset (Modernized) ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Brand Color System */
+  --primary: #0b0f38;      /* Deep Royal Blue */
+  --secondary: #d64141;    /* Warm Bright Red */
+  --accent: #e6c635;       /* Gold accent (text highlights) */
+  --dark: #222;            /* Body text */
+  --light: #f7f8fc;        /* Background */
+  --muted: #555;           /* Subtext */
+  --radius: 14px;          /* Card corner radius */
+  --transition: all 0.3s ease-in-out;
+  --font-main: 'Inter', system-ui, sans-serif;
+}
+
+/* ===== Base ===== */
+body {
+  font-family: var(--font-main);
+  line-height: 1.7;
+  color: var(--dark);
+  background: var(--light);
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: var(--primary);
+  color: var(--accent);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 8px;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.nav-links {
+  transition: all 1s ease-in-out;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.nav-links.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+.nav-links a {
+  font-weight: 600;
+  color: var(--accent);
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius);
+}
+
+.nav-links a:hover {
+  background: rgba(230, 198, 53, 0.15);
+  color: white;
+}
+
+/* Hamburger menu (mobile) */
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(
+      rgba(11, 15, 56, 0.75),
+      rgba(11, 15, 56, 0.75)
+    ),
+    url('https://picsum.photos/1600/900') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #f9f9f9;
+  padding: 2rem;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.hero p {
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
+.hero .btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--secondary);
+  color: white;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.hero .btn:hover {
+  background: #b73232;
+  transform: scale(1.05);
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 1.5rem auto;
+  color: var(--muted);
+}
+
+/* Alternate Backgrounds */
+.about, .contact {
+  background: #ffffff;
+}
+
+.services {
+  background: #f3f4f6;
+}
+
+/* ===== Services (Cards) ===== */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: var(--primary);
+}
+
+/* ===== Contact Form ===== */
+form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form input,
+form textarea {
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  color: var(--dark);
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+form button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+form button:hover {
+  background: var(--secondary);
+  transform: scale(1.05);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--primary);
+  color: var(--accent);
+  text-align: center;
+  /*padding: 1.5rem;*/
+  font-size: 0.9rem;
+}
+
+footer img {
+  margin-top: 0.5rem;
+}
+
+.site-footer {
+  background-color: #111827; /* deep royal tone */
+  color: #f9fafb;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo img {
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo h3 {
+  margin: 0.3rem 0;
+  font-size: 1.3rem;
+  color: #eab308; /* gold accent */
+}
+
+.footer-links a {
+  color: #f9fafb;
+  margin: 0 0.8rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #eab308;
+}
+
+.footer-socials a {
+  color: #f9fafb;
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #eab308;
+}
+
+.footer-bottom {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-socials a:hover .fa-facebook {
+  color: #1877f2; /* Facebook Blue */
+}
+
+.footer-socials a:hover .fa-youtube {
+  color: #ff0000; /* YouTube Red */
+}
+
+.footer-socials a:hover .fa-instagram {
+  color: #e1306c; /* Instagram Pink */
+}
+
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: var(--primary);
+    position: absolute;
+    top: 70px;
+    right: 1rem;
+    width: 200px;
+    padding: 1rem;
+    border-radius: var(--radius);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  section {
+    padding: 4rem 1rem;
+  }
+
+  .logo {
+    letter-spacing: 4px;
+    font-size: 1.4rem;
+  }
+}
